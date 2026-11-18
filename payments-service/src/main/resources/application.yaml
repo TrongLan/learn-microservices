@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: PAYMENTS_SERVICE
+  kafka:
+    producer:
+      bootstrap-servers:
+      - localhost:9092
+      - localhost:9093
+      - localhost:9094
+  datasource:
+    url: ${DB_CONNECTION_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+
+app:
+  outbox:
+    topic: payment-service
+    batch-size: 20
